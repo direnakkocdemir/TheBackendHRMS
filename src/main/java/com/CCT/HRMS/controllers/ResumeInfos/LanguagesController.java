@@ -6,6 +6,7 @@ import com.CCT.HRMS.business.abstracts.ResumeInfos.LanguageService;
 import com.CCT.HRMS.business.abstracts.Users.UserService;
 import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.core.Utilities.Token.JWTIssuer;
+import com.CCT.HRMS.entities.DTOs.IdDto;
 import com.CCT.HRMS.entities.DTOs.LanguageForAddDto;
 import com.CCT.HRMS.entities.concretes.ResumeInfos.Language;
 
@@ -65,10 +66,10 @@ public class LanguagesController {
      */
     @PostMapping("delete")
     public ResponseEntity<?> delete(@RequestHeader(name = "Authorization", required = true) String token,
-            @RequestParam int id) {
+    		@RequestBody IdDto idDto) {
         // Checking token is valid or not
         if (checkingToken(token)) {
-            Result result = languageService.delete(id);
+            Result result = languageService.delete(idDto.getId());
             if (result.isSuccess()) {
                 return ResponseEntity.ok(result);
             }

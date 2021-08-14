@@ -6,6 +6,7 @@ import com.CCT.HRMS.business.abstracts.ResumeInfos.SkillService;
 import com.CCT.HRMS.business.abstracts.Users.UserService;
 import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.core.Utilities.Token.JWTIssuer;
+import com.CCT.HRMS.entities.DTOs.IdDto;
 import com.CCT.HRMS.entities.DTOs.SkillForAddDto;
 import com.CCT.HRMS.entities.concretes.ResumeInfos.Skill;
 
@@ -65,10 +66,10 @@ public class SkillsController {
      */
     @PostMapping("delete")
     public ResponseEntity<?> delete(@RequestHeader(name = "Authorization", required = true) String token,
-            @RequestBody int id) {
+    		@RequestBody IdDto idDto) {
         // Checking token is valid or not
         if (checkingToken(token)) {
-            Result result = skillService.delete(id);
+            Result result = skillService.delete(idDto.getId());
             if (result.isSuccess()) {
                 return ResponseEntity.ok(result);
             }

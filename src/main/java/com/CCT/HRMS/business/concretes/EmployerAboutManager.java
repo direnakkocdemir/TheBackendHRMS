@@ -51,11 +51,15 @@ public class EmployerAboutManager implements EmployerAboutService {
         return new ErrorResult(result.getMessage());
     }
 
-    // @Override
-    // public Result delete(EmployerAbout employerAbout) {
-    // // TODO Auto-generated method stub
-    // return null;
-    // }
+     @Override
+     public Result delete(int id) {
+    	 EmployerAbout employerAboutToDelete = employerAboutDao.getById(id);
+    	 if(employerAboutToDelete!=null) {
+    		 this.employerAboutDao.delete(employerAboutToDelete);
+    		 return new SuccessResult(Messages.AboutDeleted);
+    	 }
+    	 return new ErrorResult(Messages.AboutNotFound);
+     }
 
     // @Override
     // public Result update(EmployerAbout employerAbout) {

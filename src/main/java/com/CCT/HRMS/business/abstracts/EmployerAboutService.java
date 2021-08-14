@@ -8,16 +8,16 @@ import com.CCT.HRMS.entities.DTOs.EmployerAboutDto;
 import com.CCT.HRMS.entities.concretes.EmployerAbout;
 
 public interface EmployerAboutService {
-    
-    Result add(EmployerAboutDto employerAboutDto);
 
-    // Result delete(EmployerAbout employerAbout);
+	Result add(EmployerAboutDto employerAboutDto);
 
-    // Result update(EmployerAbout employerAbout);
+	Result delete(int id);
 
-    DataResult<List<EmployerAbout>> getAll();
+	// Result update(EmployerAbout employerAbout);
 
-    // DataResult<EmployerAbout> getEmployerAboutById(int id);
+	DataResult<List<EmployerAbout>> getAll();
 
-    DataResult<List<EmployerAbout>> getEmployerAboutByEmployerId(int id);
+	// DataResult<EmployerAbout> getEmployerAboutById(int id);
+
+	DataResult<List<EmployerAbout>> getEmployerAboutByEmployerId(int id);
 }

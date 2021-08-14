@@ -61,9 +61,6 @@ public class ApplicationManager implements ApplicationService {
     @Override
     public DataResult<List<Application>> getAllByJobseekerId(int id) {
         List<Application> applications = applicationDao.getByJobseeker_Id(id);
-        if (applications.isEmpty()) {
-            return new ErrorDataResult<>(Messages.ApplicationsAreNotFound);
-        }
         return new SuccessDataResult<>(applications);
     }
 

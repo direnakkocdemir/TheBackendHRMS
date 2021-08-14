@@ -5,6 +5,7 @@ import com.CCT.HRMS.business.abstracts.Users.UserService;
 import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.core.Utilities.Token.JWTIssuer;
 import com.CCT.HRMS.entities.DTOs.EmployerAboutDto;
+import com.CCT.HRMS.entities.DTOs.IdDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -67,6 +68,25 @@ public class EmployerAboutsController {
     // }
     // return new ResponseEntity<List<EmployerAbout>>(HttpStatus.BAD_REQUEST);
     // }
+    
+    /**
+     * 
+     * @param id
+     * @return
+     */
+    @PostMapping("delete")
+    public ResponseEntity<?> delete(@RequestHeader(name = "Authorization", required = true) String token,
+            @RequestBody IdDto idDto) {
+        // Checking token is valid or not
+        if (checkingToken(token)) {
+            Result result = employerAboutService.delete(idDto.getId());
+            if (result.isSuccess()) {
+                return ResponseEntity.ok(result);
+            }
+            return ResponseEntity.badRequest().body(result);
+        }
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    }
 
     /**
      * 

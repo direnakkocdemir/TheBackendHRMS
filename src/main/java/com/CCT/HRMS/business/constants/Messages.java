@@ -4,11 +4,12 @@ public class Messages {
 
     
     
-    public static String JobAdAdded = "Job ad is added to the system.";
-    public static String JobAdUpdated = "Job ad is updated.";
+    public static String JobAdAdded = "Advertisement is added to the system.";
+    public static String JobAdUpdated = "Advertisement is updated.";
     public static String UserIsAdded = "User is added to the system.";
     public static String UserNotExist = "User does not exist.";
     public static String EmailIsExisted = "Email is existed. Please try again!";
+    public static String EmailNotFound = "Email is not existed. Please try again!";
     public static String UserNotFound = "User is not found!";
     public static String NullInformation = "Please fill up all of the informations";
     public static String CodeSended = "Verification code is sent.";
@@ -152,6 +153,7 @@ public class Messages {
     public static String WorkTimesAreNotFound = "WorkTimes are not found.";
     public static String WorkTimeNotFound = "WorkTime is not found.";
     public static String WorkTimeNotExist = "WorkTime does not exist.";
+	
     
     
     

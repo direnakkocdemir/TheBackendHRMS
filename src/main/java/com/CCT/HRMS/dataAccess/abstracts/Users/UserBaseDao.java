@@ -14,21 +14,7 @@ public interface UserBaseDao<T extends User> extends Repository<T, Integer> {
     <T extends User> T save(T entity);
 
     <T extends User> T getUserByEmail(String email);
-
-    // T findOne(Long id);
-
-    // Iterable<T> findAll();
-
-    // Iterable<T> findAll(Sort sort);
-
-    // Page<T> findAll(Pageable pageable);
-
-    // <T extends User> T saveAndFlush(T entity);
-
-    // <T extends User> T delete(T entity);
-
-    // <T extends User> T getById(int id);
-
-    // List<T> findAll();
+    
+    <T extends User> T findByEmail(String email);
 
 }

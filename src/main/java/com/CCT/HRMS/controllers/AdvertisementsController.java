@@ -7,6 +7,8 @@ import com.CCT.HRMS.business.abstracts.Users.UserService;
 import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.core.Utilities.Token.JWTIssuer;
 import com.CCT.HRMS.entities.DTOs.AdvertisementDto;
+import com.CCT.HRMS.entities.DTOs.ApplyDto;
+import com.CCT.HRMS.entities.DTOs.IdDto;
 import com.CCT.HRMS.entities.concretes.Advertisement;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -206,12 +208,11 @@ public class AdvertisementsController {
      */
     @PostMapping("apply")
     public ResponseEntity<?> apply(@RequestHeader(name = "Authorization", required = false) String token,
-            @RequestParam(name = "advertisementId") int jobAdId,
-            @RequestParam(name = "jobseekerId") int jobseekerId) {
+            @RequestBody ApplyDto applyDto) {
 
         // Checking token is valid or not
         if (checkingToken(token)) {
-            Result result = advertisementService.application(jobAdId, jobseekerId);
+            Result result = advertisementService.application(applyDto.getAdvertisementId(), applyDto.getJobseekerId());
             if (result.isSuccess()) {
                 return ResponseEntity.ok(result);
             }
@@ -296,6 +297,27 @@ public class AdvertisementsController {
         return ResponseEntity.badRequest().body(result);
     }
 
+    /**
+     * 
+     * @param jobAdId
+     * @param jobseekerId
+     * @return
+     */
+    @PostMapping("close")
+    public ResponseEntity<?> close(@RequestHeader(name = "Authorization", required = false) String token,
+            @RequestBody IdDto idDto) {
+    	System.out.print(token);
+        // Checking token is valid or not
+        if (checkingToken(token)) {
+            Result result = advertisementService.closeAdvertisement(idDto.getId());
+            if (result.isSuccess()) {
+                return ResponseEntity.ok(result);
+            }
+            return ResponseEntity.badRequest().body(result);
+        }
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    }
+    
     /**
      * Checking token is valid or not
      * 

@@ -45,10 +45,11 @@ public class ImagesController {
      */
     @PostMapping("upload")
     public ResponseEntity<?> upload(@RequestHeader(name = "Authorization", required = true) String token,
-            @ModelAttribute(" image") ImageForAddDto image,
+            @RequestParam("imageType") int imageType, @RequestParam("jobseekerId") int jobseekerId,
             @RequestParam("multipartFile") MultipartFile multipartFile) {
         // Checking token is valid or not
         if (checkingToken(token)) {
+        	ImageForAddDto image = new ImageForAddDto(jobseekerId,imageType);
             Result result = imageService.add(image, multipartFile);
             if (result.isSuccess()) {
                 return ResponseEntity.ok(result);

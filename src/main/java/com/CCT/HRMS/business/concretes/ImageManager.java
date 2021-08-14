@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.CCT.HRMS.business.abstracts.ImageService;
+import com.CCT.HRMS.business.constants.Messages;
 import com.CCT.HRMS.core.Results.DataResult;
 import com.CCT.HRMS.core.Results.ErrorResult;
 import com.CCT.HRMS.core.Results.Result;
@@ -46,14 +47,29 @@ public class ImageManager implements ImageService {
             image.setImageType(imageForAddDto.getImageType());
             try {
                 Map photoMap = cloudinaryService.upload(multipartFile);
-                image.setImageUrl(photoMap.get("url").toString());
+                image.setImageUrl((String) photoMap.get("url"));
                 imageDao.save(image);
             } catch (IOException e) {
                 return new ErrorResult("Image is not added" + e);
             }
 
             return new SuccessResult("Image is added");
-        } else if (i.size() == 2) {
+        } else if (i.size() >= 1) {
+        	for (Image oldImage : i) {
+				if(oldImage.getImageType()==imageForAddDto.getImageType()) {
+					delete(oldImage.getId());
+					Image image = new Image();
+		            image.setResume(resumeDao.getById(imageForAddDto.getJobseekerId()));
+		            image.setImageType(imageForAddDto.getImageType());
+		            try {
+		                Map photoMap = cloudinaryService.upload(multipartFile);
+		                image.setImageUrl((String) photoMap.get("url"));
+		                imageDao.save(image);
+		            } catch (IOException e) {
+		                return new ErrorResult("Image is not added" + e);
+		            }
+				}
+			}
             return new SuccessResult("Image is changed.");
         }
 
@@ -65,13 +81,12 @@ public class ImageManager implements ImageService {
      */
     @Override
     public Result delete(int id) {
-        // try{
-        // cloudinaryService.delete(id);
-        // }catch(IOException e){
-        // return new ErrorResult("Image is not deleted" +e);
-        // }
-
-        return new SuccessResult("Image is deleted");
+        Image imageToDelete = this.imageDao.getById(id);
+        if(imageToDelete!=null) {
+        	this.imageDao.delete(imageToDelete);
+        	return new SuccessResult(Messages.ImageDeleted);
+        }
+        return new ErrorResult(Messages.ImageNotExist);
     }
     
     @Override

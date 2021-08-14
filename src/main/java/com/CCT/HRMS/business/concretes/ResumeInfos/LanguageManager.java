@@ -38,7 +38,7 @@ public class LanguageManager implements LanguageService {
      */
     @Override
     public Result add(LanguageForAddDto languageForAddDto) {
-        Result result = BusinessRules.run(checkLevelIsValid(languageForAddDto.getLevel()),
+        Result result = BusinessRules.run(checkNullInputs(languageForAddDto),checkLevelIsValid(languageForAddDto.getLevel()),
                 checkResumeExist(languageForAddDto.getJobseekerId()));
         if (result.isSuccess()) {
             Language language = new Language();
@@ -124,6 +124,13 @@ public class LanguageManager implements LanguageService {
             return new SuccessResult();
         }
         return new ErrorResult("Language does not exist.");
+    }
+    
+    private Result checkNullInputs(LanguageForAddDto languageForAddDto) {
+    	if(languageForAddDto.getLanguage()!=null && languageForAddDto.getJobseekerId()>0 && languageForAddDto.getLevel()>0) {
+    		return new SuccessResult();
+    	}
+    	return new ErrorResult(Messages.NullInformation);
     }
 
 }

@@ -7,6 +7,7 @@ import com.CCT.HRMS.business.abstracts.Users.UserService;
 import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.core.Utilities.Token.JWTIssuer;
 import com.CCT.HRMS.entities.DTOs.EducationForAddDto;
+import com.CCT.HRMS.entities.DTOs.IdDto;
 import com.CCT.HRMS.entities.concretes.ResumeInfos.Education;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,10 +66,10 @@ public class EducationsController {
      */
     @PostMapping("delete")
     public ResponseEntity<?> delete(@RequestHeader(name = "Authorization", required = true) String token,
-            @RequestParam(name = "id") int id) {
+            @RequestBody IdDto idDto) {
         // Checking token is valid or not
         if (checkingToken(token)) {
-            Result result = educationService.delete(id);
+            Result result = educationService.delete(idDto.getId());
             if (result.isSuccess()) {
                 return ResponseEntity.ok(result);
             }
