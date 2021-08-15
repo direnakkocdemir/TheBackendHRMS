@@ -7,6 +7,11 @@ import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.entities.DTOs.AboutForAddDto;
 import com.CCT.HRMS.entities.concretes.ResumeInfos.About;
 
+/**
+ * This interface class is for business layer of About
+ * @author diren
+ *
+ */
 
 public interface AboutService {
 

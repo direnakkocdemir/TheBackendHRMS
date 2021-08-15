@@ -7,6 +7,14 @@ import com.CCT.HRMS.entities.concretes.Users.Employer;
 
 import java.util.*;
 
+/**
+ * This interface class is for business layer of Employer
+ * 
+ * @author diren
+ *
+ */
+
+
 public interface EmployerService {
 
     Result add(Employer employer);

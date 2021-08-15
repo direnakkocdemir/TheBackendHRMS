@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository // Spring bean annotation to represent the database layer
 public interface EmployerAboutDao extends JpaRepository<EmployerAbout, Integer> {
 
-    @Query("From EmployerAbout where employer_id=:id")
+    @Query("From EmployerAbout where employer_id=:id") // annotation declares finder queries directly on repository methods
     List<EmployerAbout> getEmployerAboutByEmployerId(int id);
 }

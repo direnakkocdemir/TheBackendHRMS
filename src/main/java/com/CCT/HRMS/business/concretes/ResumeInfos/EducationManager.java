@@ -20,6 +20,13 @@ import com.CCT.HRMS.entities.concretes.ResumeInfos.Education;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Business layer to manage the Education
+ * 
+ * @author diren
+ *
+ */
+
 @Service // Spring bean annotation to indicate the layer that holding the business logic
 public class EducationManager implements EducationService {
 
@@ -119,6 +126,7 @@ public class EducationManager implements EducationService {
 		return new ErrorResult("Start date must be valid.");
 	}
 
+	// Validations
 	private Result checkEducationExist(int id) {
 		if (educationDao.existsById(id)) {
 			return new SuccessResult();
@@ -135,7 +143,7 @@ public class EducationManager implements EducationService {
 	}
 
 	private Result checkNullInputs(EducationForAddDto educationForAddDto) {
-		if (educationForAddDto.getDepartment() != null && educationForAddDto.getJobseekerId() >0
+		if (educationForAddDto.getDepartment() != null && educationForAddDto.getJobseekerId() > 0
 				&& educationForAddDto.getSchoolName() != null && educationForAddDto.getStartDate() != null) {
 			return new SuccessResult();
 		}

@@ -7,17 +7,24 @@ import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.entities.DTOs.ExperienceForAddDto;
 import com.CCT.HRMS.entities.concretes.ResumeInfos.Experience;
 
+/**
+ * This interface class is for business layer of Experience
+ * 
+ * @author diren
+ *
+ */
+
 public interface ExperienceService {
-    
-    Result add(ExperienceForAddDto experienceForAddDto);
 
-    Result delete(int id);
+	Result add(ExperienceForAddDto experienceForAddDto);
 
-    Result update(Experience experience);
+	Result delete(int id);
 
-    DataResult<List<Experience>> getAll();
+	Result update(Experience experience);
 
-    // DataResult<Experience> getExperienceById(int id);
+	DataResult<List<Experience>> getAll();
 
-    DataResult<List<Experience>> getExperienceByResumeId(int id);
+	// DataResult<Experience> getExperienceById(int id);
+
+	DataResult<List<Experience>> getExperienceByResumeId(int id);
 }

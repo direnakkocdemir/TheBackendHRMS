@@ -8,19 +8,26 @@ import com.CCT.HRMS.entities.DTOs.ResumeDto;
 import com.CCT.HRMS.entities.DTOs.UpdateResumeDto;
 import com.CCT.HRMS.entities.concretes.Resume;
 
+/**
+ * This interface class is for business layer of Resume
+ * 
+ * @author diren
+ *
+ */
+
 public interface ResumeService {
-    
-    Result add(int jobseekerId);
 
-    // Result delete(Resume resume);
+	Result add(int jobseekerId);
 
-    Result update(Resume resume);
+	// Result delete(Resume resume);
 
-    DataResult<List<Resume>> getAll();
+	Result update(Resume resume);
 
-    // DataResult<Resume> getResumeById(int id);
+	DataResult<List<Resume>> getAll();
 
-    DataResult<ResumeDto> getResumeByJobseekerId(int id);
+	// DataResult<Resume> getResumeById(int id);
 
-    DataResult<Integer> getIdByJobseekerId(int id);
+	DataResult<ResumeDto> getResumeByJobseekerId(int id);
+
+	DataResult<Integer> getIdByJobseekerId(int id);
 }

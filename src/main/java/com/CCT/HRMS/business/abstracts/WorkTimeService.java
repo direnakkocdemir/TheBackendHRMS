@@ -7,17 +7,24 @@ import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.entities.DTOs.WorkTimeDto;
 import com.CCT.HRMS.entities.concretes.WorkTime;
 
+/**
+ * This interface class is for business layer of WorkTime
+ * 
+ * @author diren
+ *
+ */
+
 public interface WorkTimeService {
-    
-    Result add(WorkTime workTime);
 
-    Result delete(WorkTime workTime);
+	Result add(WorkTime workTime);
 
-    Result update(WorkTime workTime);
+	Result delete(WorkTime workTime);
 
-    DataResult<List<WorkTime>> getAll();
+	Result update(WorkTime workTime);
 
-    DataResult<List<WorkTimeDto>> getAllForDropdown();
+	DataResult<List<WorkTime>> getAll();
 
-    DataResult<WorkTime> getWorkTimeById(int id);
+	DataResult<List<WorkTimeDto>> getAllForDropdown();
+
+	DataResult<WorkTime> getWorkTimeById(int id);
 }

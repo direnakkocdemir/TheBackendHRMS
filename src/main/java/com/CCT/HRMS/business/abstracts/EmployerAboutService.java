@@ -7,6 +7,13 @@ import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.entities.DTOs.EmployerAboutDto;
 import com.CCT.HRMS.entities.concretes.EmployerAbout;
 
+/**
+ * This interface class is for business layer of EmployerAbout
+ * 
+ * @author diren
+ *
+ */
+
 public interface EmployerAboutService {
 
 	Result add(EmployerAboutDto employerAboutDto);

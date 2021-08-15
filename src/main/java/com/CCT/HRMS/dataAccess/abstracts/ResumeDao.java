@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository // Spring bean annotation to represent the database layer
 public interface ResumeDao extends JpaRepository<Resume, Integer> {
 
-    @Query("From Resume where jobseeker_id =:id")
+    @Query("From Resume where jobseeker_id =:id") // annotation declares finder queries directly on repository methods
     Resume getByJobseeker_Id(int id);
 
     @Query("Select id From Resume where jobseeker_id=:id")

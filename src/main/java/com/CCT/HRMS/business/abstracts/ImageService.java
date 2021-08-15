@@ -9,17 +9,24 @@ import com.CCT.HRMS.entities.concretes.Image;
 
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * This interface class is for business layer of Image
+ * 
+ * @author diren
+ *
+ */
+
 public interface ImageService {
-    
-    Result add(ImageForAddDto imageForAddDto,MultipartFile multipartFile);
 
-    Result delete(int id);
+	Result add(ImageForAddDto imageForAddDto, MultipartFile multipartFile);
 
-    // Result update(Image image);
+	Result delete(int id);
 
-    DataResult<List<Image>> getAll();
+	// Result update(Image image);
 
-    // DataResult<Image> getImageById(int id);
+	DataResult<List<Image>> getAll();
 
-    DataResult<Image> getImageByUserId(int id);
+	// DataResult<Image> getImageById(int id);
+
+	DataResult<Image> getImageByUserId(int id);
 }

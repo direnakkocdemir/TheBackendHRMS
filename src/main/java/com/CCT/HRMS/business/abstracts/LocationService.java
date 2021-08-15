@@ -7,6 +7,13 @@ import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.entities.DTOs.LocationDto;
 import com.CCT.HRMS.entities.concretes.Location;
 
+/**
+ * This interface class is for business layer of Location
+ * 
+ * @author diren
+ *
+ */
+
 public interface LocationService {
     
     Result add(Location location);

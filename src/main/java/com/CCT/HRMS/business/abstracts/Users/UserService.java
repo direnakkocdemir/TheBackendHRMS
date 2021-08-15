@@ -6,6 +6,14 @@ import com.CCT.HRMS.core.Results.DataResult;
 import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.entities.concretes.Users.User;
 
+/**
+ * This interface class is for business layer of User
+ * 
+ * @author diren
+ *
+ */
+
+
 public interface UserService {
 
     // Result add(User user);

@@ -18,6 +18,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+/**
+ * Business layer to manage the Location
+ * 
+ * @author diren
+ *
+ */
+
 @Service // Spring bean annotation to indicate the layer that holding the business logic
 public class LocationManager implements LocationService {
 

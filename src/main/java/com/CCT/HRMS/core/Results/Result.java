@@ -1,10 +1,18 @@
 package com.CCT.HRMS.core.Results;
 
+/**
+ * Define the results with their properties
+ * 
+ * @author Diren
+ *
+ */
 public abstract class Result {
-
+	
+	// Properties
     private boolean success;
     private String message;
-
+    
+    // Constructors
     public Result(boolean success,String message){
         this(success);
         this.message=message;
@@ -17,7 +25,8 @@ public abstract class Result {
     public Result(){
 
     }
-
+    
+    // Getter methods
     public boolean isSuccess() {
         return success;
     }

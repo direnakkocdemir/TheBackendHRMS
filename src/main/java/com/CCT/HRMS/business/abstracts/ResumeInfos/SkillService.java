@@ -7,17 +7,24 @@ import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.entities.DTOs.SkillForAddDto;
 import com.CCT.HRMS.entities.concretes.ResumeInfos.Skill;
 
+/**
+ * This interface class is for business layer of Skill
+ * 
+ * @author diren
+ *
+ */
+
 public interface SkillService {
-    
-    Result add(SkillForAddDto skillForAddDto);
 
-    Result delete(int id);
+	Result add(SkillForAddDto skillForAddDto);
 
-    Result update(Skill skill);
+	Result delete(int id);
 
-    DataResult<List<Skill>> getAll();
+	Result update(Skill skill);
 
-    // DataResult<Skill> getSkillById(int id);
+	DataResult<List<Skill>> getAll();
 
-    DataResult<List<Skill>> getSkillByResumeId(int id);
+	// DataResult<Skill> getSkillById(int id);
+
+	DataResult<List<Skill>> getSkillByResumeId(int id);
 }

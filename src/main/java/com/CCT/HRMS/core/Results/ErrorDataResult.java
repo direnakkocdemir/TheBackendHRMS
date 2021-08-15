@@ -1,7 +1,17 @@
 package com.CCT.HRMS.core.Results;
 
-public class ErrorDataResult<T> extends DataResult<T> {
+/**
+ * This class is defined for unsuccessfully results which include data If result
+ * is not successful result returns false, data with/without message
+ * 
+ * @author Diren
+ *
+ * @param <T> parameter which is defined for methods
+ */
 
+public class ErrorDataResult<T> extends DataResult<T> {
+	
+	// Constructors
     public ErrorDataResult(T data, String message) {
         super(data, false, message);
     }

@@ -28,6 +28,13 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+/**
+ * Business layer to manage the Advertisement
+ * 
+ * @author diren
+ *
+ */
+
 @Service // Spring bean annotation to indicate the layer that holding the business logic
 public class AdvertisementManager implements AdvertisementService {
 

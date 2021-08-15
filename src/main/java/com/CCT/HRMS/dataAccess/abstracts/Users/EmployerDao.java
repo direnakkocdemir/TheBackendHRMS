@@ -6,7 +6,7 @@ import com.CCT.HRMS.entities.concretes.Users.Employer;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-@Transactional
-public interface EmployerDao extends JpaRepository<Employer,Integer>,UserBaseDao<Employer> {
+@Transactional // The annotation to configure the transactional behavior of a method
+public interface EmployerDao extends JpaRepository<Employer, Integer>, UserBaseDao<Employer> {
 
 }

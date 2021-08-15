@@ -11,6 +11,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The external service implementation
+ * @author diren
+ *
+ */
+
 @Service
 public class CloudinaryService {
 

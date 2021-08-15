@@ -7,6 +7,12 @@ import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.entities.DTOs.EducationForAddDto;
 import com.CCT.HRMS.entities.concretes.ResumeInfos.Education;
 
+/**
+ * This interface class is for business layer of Education
+ * @author diren
+ *
+ */
+
 public interface EducationService {
 
     Result add(EducationForAddDto educationForAddDto);

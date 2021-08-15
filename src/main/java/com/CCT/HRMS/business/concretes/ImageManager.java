@@ -20,6 +20,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * Business layer to manage the Image
+ * 
+ * @author diren
+ *
+ */
+
 @Service // Spring bean annotation to indicate the layer that holding the business logic
 public class ImageManager implements ImageService {
 
@@ -40,7 +47,7 @@ public class ImageManager implements ImageService {
      */
     @Override
     public Result add(ImageForAddDto imageForAddDto, MultipartFile multipartFile) {
-        List<Image> i = imageDao.getByResume_Id(imageForAddDto.getJobseekerId());
+        List<Image> i = imageDao.getByResume_Id(this.resumeDao.getIdByJobseeker_Id(imageForAddDto.getJobseekerId()));
         if (i.isEmpty()) {
             Image image = new Image();
             image.setResume(resumeDao.getById(imageForAddDto.getJobseekerId()));

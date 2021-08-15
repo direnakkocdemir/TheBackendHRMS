@@ -7,6 +7,13 @@ import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.entities.DTOs.LanguageForAddDto;
 import com.CCT.HRMS.entities.concretes.ResumeInfos.Language;
 
+/**
+ * This interface class is for business layer of Language
+ * 
+ * @author diren
+ *
+ */
+
 public interface LanguageService {
     
     Result add(LanguageForAddDto languageForAddDto);

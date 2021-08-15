@@ -6,8 +6,7 @@ import com.CCT.HRMS.entities.concretes.Users.Jobseeker;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-@Transactional
-public interface JobseekerDao extends JpaRepository<Jobseeker,Integer>,UserBaseDao<Jobseeker>{
- 
-    
+@Transactional // The annotation to configure the transactional behavior of a method
+public interface JobseekerDao extends JpaRepository<Jobseeker, Integer>, UserBaseDao<Jobseeker> {
+
 }

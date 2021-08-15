@@ -6,17 +6,24 @@ import com.CCT.HRMS.core.Results.DataResult;
 import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.entities.concretes.Application;
 
+/**
+ * This interface class is for business layer of Application
+ * 
+ * @author diren
+ *
+ */
+
 public interface ApplicationService {
-    
-    Result add(Application application);
 
-    // Result delete(EmployerAbout employerAbout);
+	Result add(Application application);
 
-    // Result update(EmployerAbout employerAbout);
+	// Result delete(EmployerAbout employerAbout);
 
-    DataResult<List<Application>> getAll();
+	// Result update(EmployerAbout employerAbout);
 
-    DataResult<List<Application>> getAllByAdvertisementId(int id);
+	DataResult<List<Application>> getAll();
 
-    DataResult<List<Application>> getAllByJobseekerId(int id);
+	DataResult<List<Application>> getAllByAdvertisementId(int id);
+
+	DataResult<List<Application>> getAllByJobseekerId(int id);
 }

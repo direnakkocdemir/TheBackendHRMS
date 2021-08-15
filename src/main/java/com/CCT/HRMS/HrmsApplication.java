@@ -34,7 +34,8 @@ public class HrmsApplication {
     public static void main(String[] args) {
         SpringApplication.run(HrmsApplication.class, args);
     }
-
+    
+    // Swagger-ui implementation
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()
@@ -50,9 +51,9 @@ public class HrmsApplication {
 
             String[] cities = { "Carlow", "Cavan", "Clare", "Cork", "Donegal", "Dublin", "Galway", "Kerry", "Kildare",
                     "Kilkenny", "Laois", "Leitrim", "Limerick", "Longford", "Louth", "Mayo", "Meath", "Monaghan",
-                    "Offaly", "Roscommon", "Sligo", "Tipperary", "Waterford", "Westmeath", "Wexford", "Wicklow" };
+                    "Offaly", "Roscommon", "Sligo", "Tipperary", "Waterford", "Westmeath", "Wexford", "Wicklow" }; // Cities defined in the database
 
-            String[] workTimes = { "Full-time", "Part-time", "Contract", "Temporary", "Internship", "Remotely" };
+            String[] workTimes = { "Full-time", "Part-time", "Contract", "Temporary", "Internship", "Remotely" }; // Work times defined in the database
 
             for (String city : cities) {
                 Location location = new Location();
@@ -65,7 +66,8 @@ public class HrmsApplication {
                 workTime.setName(wt);
                 workTimeService.add(workTime);
             }
-
+            
+            // Defined a sample jobseeker in the database
             JobseekerRegisterDto jobseeker = new JobseekerRegisterDto();
             jobseeker.setEmail("diren@diren.com");
             jobseeker.setFirstName("Diren");
@@ -75,7 +77,11 @@ public class HrmsApplication {
             jobseeker.setPassword("password");
             jobseeker.setConfirmPassword("password");
             authService.jobseekerRegistration(jobseeker);
-
+            
+            /**
+             * Defined samples job positions in the database system
+             * Defined samples companies in the database system
+             */
             String[] jobPositions = { "Java Developer", "Backend Developer", "Frontend Developer", "React Developer",
                     ".Net Developer", "Python Developer" };
             String[] companies = { "CCT", "Google", "Facebook", "Twitter", "Amazon", "Linkedin", "Indeed" };

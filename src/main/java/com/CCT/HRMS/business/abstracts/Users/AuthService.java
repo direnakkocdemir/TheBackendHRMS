@@ -7,6 +7,14 @@ import com.CCT.HRMS.entities.DTOs.JobseekerRegisterDto;
 import com.CCT.HRMS.entities.DTOs.LoginDto;
 import com.CCT.HRMS.entities.DTOs.UserLoginReturnDto;
 
+/**
+ * This interface class is for business layer of Auth
+ * 
+ * @author diren
+ *
+ */
+
+
 public interface AuthService {
     
     public Result employerRegistration(EmployerRegisterDto employerRegisterDto);

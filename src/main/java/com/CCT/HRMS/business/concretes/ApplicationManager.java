@@ -14,6 +14,13 @@ import com.CCT.HRMS.entities.concretes.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Business layer to manage the Application
+ * 
+ * @author diren
+ *
+ */
+
 @Service // Spring bean annotation to indicate the layer that holding the business logic
 public class ApplicationManager implements ApplicationService {
     

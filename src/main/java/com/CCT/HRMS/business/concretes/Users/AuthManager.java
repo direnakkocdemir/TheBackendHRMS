@@ -31,6 +31,13 @@ import com.CCT.HRMS.entities.concretes.Users.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Business layer to manage the Auth
+ * 
+ * @author diren
+ *
+ */
+
 @Service // Spring bean annotation to indicate the layer that holding the business logic
 public class AuthManager implements AuthService {
 
@@ -63,6 +70,9 @@ public class AuthManager implements AuthService {
 		this.userDao = userDao;
 	}
 
+	/**
+	 * Employer registration method
+	 */
 	@Override
 	public Result employerRegistration(EmployerRegisterDto employerRegisterDto) {
 		Employer employer = employerHelper(employerRegisterDto);
@@ -79,6 +89,9 @@ public class AuthManager implements AuthService {
 		return new ErrorResult(result.getMessage());
 	}
 
+	/**
+	 * Jobseeker registration method
+	 */
 	@Override
 	public Result jobseekerRegistration(JobseekerRegisterDto jobseekerRegisterDto) {
 		Jobseeker jobseeker = jobseekerHelper(jobseekerRegisterDto);
@@ -95,6 +108,9 @@ public class AuthManager implements AuthService {
 		return new ErrorResult(result.getMessage());
 	}
 
+	/**
+	 * Users login method
+	 */
 	@Override
 	public DataResult<UserLoginReturnDto> login(LoginDto loginDto) {
 		Result result = BusinessRules.run(chekckEmailIsRegistered(loginDto.getEmail()),
@@ -179,7 +195,7 @@ public class AuthManager implements AuthService {
 
 	private Result checkPassword(LoginDto loginDto) {
 		User user = this.userDao.findByEmail(loginDto.getEmail());
-		if (user!=null && user.getPassword().equals(loginDto.getPassword())) {
+		if (user != null && user.getPassword().equals(loginDto.getPassword())) {
 			return new SuccessResult();
 		}
 		return new ErrorResult(Messages.PasswordsAreNotMatched);
