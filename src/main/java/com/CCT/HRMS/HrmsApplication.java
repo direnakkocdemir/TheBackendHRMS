@@ -67,7 +67,7 @@ public class HrmsApplication {
                 workTimeService.add(workTime);
             }
             
-            // Defined a sample jobseeker in the database
+            // Defined a sample jobseeker in the database for testing
             JobseekerRegisterDto jobseeker = new JobseekerRegisterDto();
             jobseeker.setEmail("diren@diren.com");
             jobseeker.setFirstName("Diren");
@@ -79,8 +79,8 @@ public class HrmsApplication {
             authService.jobseekerRegistration(jobseeker);
             
             /**
-             * Defined samples job positions in the database system
-             * Defined samples companies in the database system
+             * Defined samples job positions in the database system for testing
+             * Defined samples companies in the database system for testing
              */
             String[] jobPositions = { "Java Developer", "Backend Developer", "Frontend Developer", "React Developer",
                     ".Net Developer", "Python Developer" };
