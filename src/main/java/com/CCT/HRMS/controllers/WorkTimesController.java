@@ -27,74 +27,78 @@ import io.jsonwebtoken.Claims;
 @CrossOrigin
 public class WorkTimesController {
 
-    // Properties
-    private WorkTimeService workTimeService;
-    private UserService userService;
+	// Properties
+	private WorkTimeService workTimeService;
+	private UserService userService;
 
-    // Constructor
-    @Autowired // Spring bean annotation injects object dependency implicitly
-    public WorkTimesController(WorkTimeService workTimeService, UserService userService) {
-        this.workTimeService = workTimeService;
-        this.userService = userService;
-    }
+	// Constructor
+	@Autowired // Spring bean annotation injects object dependency implicitly
+	public WorkTimesController(WorkTimeService workTimeService, UserService userService) {
+		this.workTimeService = workTimeService;
+		this.userService = userService;
+	}
 
-    /**
-     * 
-     * @return
-     */
-    @GetMapping("getall")
-    public ResponseEntity<List<WorkTime>> getAll() {
-        var result = workTimeService.getAll();
-        if (result.isSuccess()) {
-            return new ResponseEntity<List<WorkTime>>(result.getData(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
+	/**
+	 * Getting all of the work time from the system
+	 * 
+	 * @return
+	 */
+	@GetMapping("getall")
+	public ResponseEntity<List<WorkTime>> getAll() {
+		var result = workTimeService.getAll();
+		if (result.isSuccess()) {
+			return new ResponseEntity<List<WorkTime>>(result.getData(), HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
 
-    /**
-     * 
-     * @return
-     */
-    @GetMapping("getallfordropdown")
-    public ResponseEntity<List<WorkTimeDto>> getAllForDropdown() {
-        var result = workTimeService.getAllForDropdown();
-        if (result.isSuccess()) {
-            return new ResponseEntity<List<WorkTimeDto>>(result.getData(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
+	/**
+	 * Getting all of the work time from the data base by dropdown type
+	 * 
+	 * @return
+	 */
+	@GetMapping("getallfordropdown")
+	public ResponseEntity<List<WorkTimeDto>> getAllForDropdown() {
+		var result = workTimeService.getAllForDropdown();
+		if (result.isSuccess()) {
+			return new ResponseEntity<List<WorkTimeDto>>(result.getData(), HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
 
-    /**
-     * 
-     * @param workTime
-     * @return
-     */
-    @PostMapping("add")
-    public ResponseEntity<?> add(@RequestHeader(name = "Authorization", required = true) String token,
-            @RequestBody WorkTime workTime) {
-        // Checking token is valid or not
-        if (checkingToken(token)) {
-            Result result = workTimeService.add(workTime);
-            if (result.isSuccess()) {
-                return ResponseEntity.ok(result);
-            }
-            return ResponseEntity.badRequest().body(result);
-        }
-        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-    }
+	/**
+	 * Adding a work time to the database
+	 * 
+	 * @param token
+	 * @param workTime
+	 * @return
+	 */
+	@PostMapping("add")
+	public ResponseEntity<?> add(@RequestHeader(name = "Authorization", required = true) String token,
+			@RequestBody WorkTime workTime) {
+		// Checking token is valid or not
+		if (checkingToken(token)) {
+			Result result = workTimeService.add(workTime);
+			if (result.isSuccess()) {
+				return ResponseEntity.ok(result);
+			}
+			return ResponseEntity.badRequest().body(result);
+		}
+		return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+	}
 
-    /**
-     * Checking token is valid or not
-     * 
-     * @param token Token is key to access to system
-     * @return if it is valid true, otherwise false
-     */
-    private boolean checkingToken(String token) {
-        Claims claims = JWTIssuer.decodeJWT(token.split(" ")[1]);
-        String subClaim = claims.get("sub", String.class);
-        if (userService.checkUser(subClaim).isSuccess()) {
-            return true;
-        }
-        return false;
-    }
+	/**
+	 * Checking token is valid or not
+	 * 
+	 * @param token Token is key to access to system
+	 * @return if it is valid true, otherwise false
+	 */
+	private boolean checkingToken(String token) {
+		Claims claims = JWTIssuer.decodeJWT(token.split(" ")[1]);
+		String subClaim = claims.get("sub", String.class);
+		if (userService.checkUser(subClaim).isSuccess()) {
+			return true;
+		}
+		return false;
+	}
 }

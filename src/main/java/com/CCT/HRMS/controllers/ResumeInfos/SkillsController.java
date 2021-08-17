@@ -41,7 +41,8 @@ public class SkillsController {
     }
 
     /**
-     * 
+     * Adding a skill to database 
+     * @param token
      * @param skill
      * @return
      */
@@ -60,8 +61,9 @@ public class SkillsController {
     }
 
     /**
-     * 
-     * @param id
+     * Deleting a skill from database by defined id
+     * @param token
+     * @param idDto
      * @return
      */
     @PostMapping("delete")
@@ -79,7 +81,8 @@ public class SkillsController {
     }
 
     /**
-     * 
+     * Updating the skill
+     * @param token
      * @param skill
      * @return
      */
@@ -97,21 +100,22 @@ public class SkillsController {
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 
-    /**
-     * 
-     * @return
-     */
-    @GetMapping("getall")
-    public ResponseEntity<List<Skill>> getAll() {
-        var result = skillService.getAll();
-        if (result.isSuccess()) {
-            return new ResponseEntity<>(result.getData(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
+//    /**
+//     * Getting all of the skills from database
+//     * @return
+//     */
+//    @GetMapping("getall")
+//    public ResponseEntity<List<Skill>> getAll() {
+//        var result = skillService.getAll();
+//        if (result.isSuccess()) {
+//            return new ResponseEntity<>(result.getData(), HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//    }
 
     /**
-     * 
+     * Getting a skill from database by defined id
+     * @param token
      * @param id
      * @return
      */

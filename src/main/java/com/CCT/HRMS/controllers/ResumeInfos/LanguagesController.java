@@ -41,7 +41,8 @@ public class LanguagesController {
     }
 
     /**
-     * 
+     * Adding a language to the database
+     * @param token
      * @param language
      * @return
      */
@@ -60,8 +61,9 @@ public class LanguagesController {
     }
 
     /**
-     * 
-     * @param id
+     * Deleting a language from database by defined id
+     * @param token
+     * @param idDto
      * @return
      */
     @PostMapping("delete")
@@ -79,7 +81,8 @@ public class LanguagesController {
     }
 
     /**
-     * 
+     * Updating the language
+     * @param token
      * @param language
      * @return
      */
@@ -97,21 +100,22 @@ public class LanguagesController {
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 
-    /**
-     * 
-     * @return
-     */
-    @GetMapping("getall")
-    public ResponseEntity<List<Language>> getAll() {
-        var result = languageService.getAll();
-        if (result.isSuccess()) {
-            return new ResponseEntity<>(result.getData(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
+//    /**
+//     * Getting all of the languages
+//     * @return
+//     */
+//    @GetMapping("getall")
+//    public ResponseEntity<List<Language>> getAll() {
+//        var result = languageService.getAll();
+//        if (result.isSuccess()) {
+//            return new ResponseEntity<>(result.getData(), HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//    }
 
     /**
-     * 
+     * Getting a language from database by defined id
+     * @param token
      * @param id
      * @return
      */

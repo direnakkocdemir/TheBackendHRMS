@@ -26,75 +26,80 @@ import io.jsonwebtoken.Claims;
 @CrossOrigin
 @RequestMapping("/api/location")
 public class LocationsController {
-    
-    // Properties
-    private LocationService locationService;
-    private UserService userService;
 
-    // Constructor
-    @Autowired // Spring bean annotation injects object dependency implicitly
-    public LocationsController(LocationService locationService, UserService userService) {
-        this.locationService = locationService;
-        this.userService = userService;
-    }
+	// Properties
+	private LocationService locationService;
+	private UserService userService;
 
-    /**
-     * 
-     * @return
-     */
-    @GetMapping("getall")
-    public ResponseEntity<List<Location>> getAll(){
-        var result = locationService.getAll();
-        if(result.isSuccess()){
-            return new ResponseEntity<List<Location>>(result.getData(),HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
+	// Constructor
+	@Autowired // Spring bean annotation injects object dependency implicitly
+	public LocationsController(LocationService locationService, UserService userService) {
+		this.locationService = locationService;
+		this.userService = userService;
+	}
 
-    /**
-     * 
-     * @return
-     */
-    @GetMapping("getallfordropdown")
-    public ResponseEntity<List<LocationDto>> getAllForDropdown(){
-        var result = locationService.getAllForDropdown();
-        if(result.isSuccess()){
-            return new ResponseEntity<List<LocationDto>>(result.getData(),HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
+	/**
+	 * Getting all the locations
+	 * 
+	 * @return
+	 */
+	@GetMapping("getall")
+	public ResponseEntity<List<Location>> getAll() {
+		var result = locationService.getAll();
+		if (result.isSuccess()) {
+			return new ResponseEntity<List<Location>>(result.getData(), HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
 
-    /**
-     * 
-     * @param location
-     * @return
-     */
-    @PostMapping("add")
-    public ResponseEntity<?> add(@RequestHeader(name = "Authorization", required = true) String token,
-    @RequestBody Location location){
-        // Checking token is valid or not
-        if (checkingToken(token)) {
-        Result result = locationService.add(location);
-        if(result.isSuccess()){
-            return ResponseEntity.ok(result);
-            }
-            return ResponseEntity.badRequest().body(result);
-        }
-        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-    }
-    /**
-     * Checking token is valid or not
-     * 
-     * @param token Token is key to access to system
-     * @return if it is valid true, otherwise false
-     */
-    private boolean checkingToken(String token) {
-        Claims claims = JWTIssuer.decodeJWT(token.split(" ")[1]);
-        String subClaim = claims.get("sub", String.class);
-        if (userService.checkUser(subClaim).isSuccess()) {
-            return true;
-        }
-        return false;
-    }
-    
+	/**
+	 * Getting all the locations by dropdown type
+	 * 
+	 * @return
+	 */
+	@GetMapping("getallfordropdown")
+	public ResponseEntity<List<LocationDto>> getAllForDropdown() {
+		var result = locationService.getAllForDropdown();
+		if (result.isSuccess()) {
+			return new ResponseEntity<List<LocationDto>>(result.getData(), HttpStatus.OK);
+		}
+		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	}
+
+	/**
+	 * Adding a location to data base
+	 * 
+	 * @param token
+	 * @param location
+	 * @return
+	 */
+	@PostMapping("add")
+	public ResponseEntity<?> add(@RequestHeader(name = "Authorization", required = true) String token,
+			@RequestBody Location location) {
+		// Checking token is valid or not
+		if (checkingToken(token)) {
+			Result result = locationService.add(location);
+			if (result.isSuccess()) {
+				return ResponseEntity.ok(result);
+			}
+			return ResponseEntity.badRequest().body(result);
+		}
+		return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+	}
+
+	/**
+	 * Checking token is valid or not
+	 * 
+	 * @param token Token is key to access to system
+	 * @return if it is valid true, otherwise false
+	 */
+	private boolean checkingToken(String token) {
+		Claims claims = JWTIssuer.decodeJWT(token.split(" ")[1]);
+		String subClaim = claims.get("sub", String.class);
+		if (userService.checkUser(subClaim).isSuccess()) {
+			return true;
+		}
+		return false;
+	}
+
 }

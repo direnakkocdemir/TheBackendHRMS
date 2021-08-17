@@ -35,7 +35,7 @@ public class EmployersController {
     }
 
     /**
-     * 
+     * Adding an employer to database
      * @param employer
      * @return
      */
@@ -49,7 +49,7 @@ public class EmployersController {
     }
 
     /**
-     * 
+     * Deleting an employer from database
      * @param employer
      * @return
      */
@@ -63,7 +63,7 @@ public class EmployersController {
     }
 
     /**
-     * 
+     * Updating the employer
      * @param employer
      * @return
      */
@@ -77,7 +77,7 @@ public class EmployersController {
     }
 
     /**
-     * 
+     * Getting an employer by id
      * @param id
      * @return
      */
@@ -92,7 +92,7 @@ public class EmployersController {
 
 
     /**
-     * 
+     * Getting all of the employers
      * @return
      */
     @GetMapping("getall")
@@ -105,7 +105,7 @@ public class EmployersController {
     }
 
     /**
-     * 
+     * Getting Employer's detail by defined employer id
      * @param id
      * @return
      */

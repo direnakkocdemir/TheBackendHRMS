@@ -30,49 +30,49 @@ public class StaffsController {
         this.staffService = staffService;
     }
 
-    @PostMapping("add")
-    public ResponseEntity<String> add(@RequestBody Staff staff){
-        var result = staffService.add(staff);
-        if(result.isSuccess()){
-            return new ResponseEntity<String>(result.getMessage(),HttpStatus.OK);
-        }
-        return new ResponseEntity<>(result.getMessage(),HttpStatus.BAD_REQUEST);
-    }
-
-    @PostMapping("delete")
-    public ResponseEntity<String> delete(@RequestBody Staff staff){
-        var result = staffService.delete(staff);
-        if(result.isSuccess()){
-            return new ResponseEntity<String>(result.getMessage(),HttpStatus.OK);
-        }
-        return new ResponseEntity<>(result.getMessage(),HttpStatus.BAD_REQUEST);
-    }
-
-    @PostMapping("update")
-    public ResponseEntity<String> update(@RequestBody Staff staff){
-        var result = staffService.update(staff);
-        if(result.isSuccess()){
-            return new ResponseEntity<String>(result.getMessage(),HttpStatus.OK);
-        }
-        return new ResponseEntity<>(result.getMessage(),HttpStatus.BAD_REQUEST);
-    }
-
-    @GetMapping("get")
-    public ResponseEntity<Staff> getById(@RequestParam int id){
-        var result = staffService.getStaffById(id);
-        if(result.isSuccess()){
-            return new ResponseEntity<>(result.getData(),HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
-
-    @GetMapping("getall")
-    public ResponseEntity<List<Staff>> getAll(){
-        var result = staffService.getAll();
-        if(result.isSuccess()){
-            return new ResponseEntity<>(result.getData(),HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
+//    @PostMapping("add")
+//    public ResponseEntity<String> add(@RequestBody Staff staff){
+//        var result = staffService.add(staff);
+//        if(result.isSuccess()){
+//            return new ResponseEntity<String>(result.getMessage(),HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>(result.getMessage(),HttpStatus.BAD_REQUEST);
+//    }
+//
+//    @PostMapping("delete")
+//    public ResponseEntity<String> delete(@RequestBody Staff staff){
+//        var result = staffService.delete(staff);
+//        if(result.isSuccess()){
+//            return new ResponseEntity<String>(result.getMessage(),HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>(result.getMessage(),HttpStatus.BAD_REQUEST);
+//    }
+//
+//    @PostMapping("update")
+//    public ResponseEntity<String> update(@RequestBody Staff staff){
+//        var result = staffService.update(staff);
+//        if(result.isSuccess()){
+//            return new ResponseEntity<String>(result.getMessage(),HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>(result.getMessage(),HttpStatus.BAD_REQUEST);
+//    }
+//
+//    @GetMapping("get")
+//    public ResponseEntity<Staff> getById(@RequestParam int id){
+//        var result = staffService.getStaffById(id);
+//        if(result.isSuccess()){
+//            return new ResponseEntity<>(result.getData(),HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//    }
+//
+//    @GetMapping("getall")
+//    public ResponseEntity<List<Staff>> getAll(){
+//        var result = staffService.getAll();
+//        if(result.isSuccess()){
+//            return new ResponseEntity<>(result.getData(),HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//    }
 
 }

@@ -40,7 +40,7 @@ public class JobseekersController {
     }
 
     /**
-     * 
+     * Adding a jobseeker to the system
      * @param jobseeker
      * @return
      */
@@ -54,7 +54,7 @@ public class JobseekersController {
     }
 
     /**
-     * 
+     * Deleting a jobseeker from database
      * @param jobseeker
      * @return
      */
@@ -68,7 +68,7 @@ public class JobseekersController {
     }
 
     /**
-     * 
+     * Updating the jobseeker
      * @param jobseeker
      * @return
      */
@@ -82,7 +82,7 @@ public class JobseekersController {
     }
 
     /**
-     * 
+     * Getting a jobseeker by jobseeker id 
      * @param id
      * @return
      */
@@ -96,7 +96,7 @@ public class JobseekersController {
     }
 
     /**
-     * 
+     * Getting all of the jobseekers
      * @return
      */
     @GetMapping("getall")
@@ -109,7 +109,8 @@ public class JobseekersController {
     }
 
     /**
-     * 
+     * Getting jobseeker's detail by jobseeker id 
+     * @param token
      * @param id
      * @return
      */

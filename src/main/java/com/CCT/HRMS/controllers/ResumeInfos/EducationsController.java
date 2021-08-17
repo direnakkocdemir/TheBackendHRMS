@@ -41,7 +41,8 @@ public class EducationsController {
     }
 
     /**
-     * 
+     * Adding an education to database
+     * @param token
      * @param education
      * @return
      */
@@ -60,8 +61,9 @@ public class EducationsController {
     }
 
     /**
-     * 
-     * @param id
+     * Deleting an education from database by defined id
+     * @param token
+     * @param idDto
      * @return
      */
     @PostMapping("delete")
@@ -79,7 +81,8 @@ public class EducationsController {
     }
 
     /**
-     * 
+     * Updating the education 
+     * @param token
      * @param education
      * @return
      */
@@ -98,21 +101,22 @@ public class EducationsController {
 
     }
 
-    /**
-     * 
-     * @return
-     */
-    @GetMapping("getall")
-    public ResponseEntity<List<Education>> getAll() {
-        var result = educationService.getAll();
-        if (result.isSuccess()) {
-            return new ResponseEntity<>(result.getData(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
+//    /**
+//     * Getting all of the educations from database
+//     * @return
+//     */
+//    @GetMapping("getall")
+//    public ResponseEntity<List<Education>> getAll() {
+//        var result = educationService.getAll();
+//        if (result.isSuccess()) {
+//            return new ResponseEntity<>(result.getData(), HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//    }
 
     /**
-     * 
+     * Getting a education from database by defined id
+     * @param token
      * @param id
      * @return
      */

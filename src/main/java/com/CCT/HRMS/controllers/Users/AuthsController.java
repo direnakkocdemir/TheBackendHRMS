@@ -31,7 +31,7 @@ public class AuthsController {
     }
 
     /**
-     * 
+     * Registration for employer
      * @param employerRegisterDto
      * @return
      */
@@ -44,7 +44,7 @@ public class AuthsController {
         return ResponseEntity.badRequest().body(result);
     }
     /**
-     * 
+     * Registration for jobseeker
      * @param jobseekerRegisterDto
      * @return
      */
@@ -58,7 +58,7 @@ public class AuthsController {
     }
 
     /**
-     * 
+     * Login function for all of the users
      * @param loginDto
      * @return
      */

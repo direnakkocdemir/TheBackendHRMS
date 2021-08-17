@@ -41,7 +41,8 @@ public class ExperiencesController {
     }
 
     /**
-     * 
+     * Adding an experience to the database
+     * @param token
      * @param experience
      * @return
      */
@@ -60,8 +61,9 @@ public class ExperiencesController {
     }
 
     /**
-     * 
-     * @param id
+     * Deleting an experience from the system by defined education id
+     * @param token
+     * @param idDto
      * @return
      */
     @PostMapping("delete")
@@ -79,7 +81,8 @@ public class ExperiencesController {
     }
 
     /**
-     * 
+     * Updating the experience 
+     * @param token
      * @param experience
      * @return
      */
@@ -97,21 +100,22 @@ public class ExperiencesController {
         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
 
-    /**
-     * 
-     * @return
-     */
-    @GetMapping("getall")
-    public ResponseEntity<List<Experience>> getAll() {
-        var result = experienceService.getAll();
-        if (result.isSuccess()) {
-            return new ResponseEntity<>(result.getData(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
+//    /**
+//     * Getting all of the experiences
+//     * @return
+//     */
+//    @GetMapping("getall")
+//    public ResponseEntity<List<Experience>> getAll() {
+//        var result = experienceService.getAll();
+//        if (result.isSuccess()) {
+//            return new ResponseEntity<>(result.getData(), HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//    }
 
     /**
-     * 
+     * Getting an experience from database by defined id
+     * @param token
      * @param id
      * @return
      */
