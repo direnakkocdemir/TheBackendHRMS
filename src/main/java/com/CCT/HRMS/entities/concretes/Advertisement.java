@@ -1,15 +1,21 @@
 package com.CCT.HRMS.entities.concretes;
 
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.CCT.HRMS.entities.concretes.Users.Employer;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
-
-import com.CCT.HRMS.entities.concretes.Users.Employer;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import java.time.LocalDate;
 
 @Entity // The javax.persistence annotation represents a table stored in a database
 @Data // Lombok annotation to generate @Getter and @Setter methods

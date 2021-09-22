@@ -1,13 +1,11 @@
 package com.CCT.HRMS.entities.concretes.Users;
 
 import java.time.LocalDate;
-import java.util.*;
 
-import javax.persistence.*;
-
-import com.CCT.HRMS.entities.concretes.Application;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.CCT.HRMS.entities.concretes.Advertisement;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
