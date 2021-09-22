@@ -1,12 +1,9 @@
 package com.CCT.HRMS.controllers;
 
-import java.util.List;
-
 import com.CCT.HRMS.business.abstracts.ResumeService;
 import com.CCT.HRMS.business.abstracts.Users.UserService;
 import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.core.Utilities.Token.JWTIssuer;
-import com.CCT.HRMS.entities.DTOs.ResumeDto;
 import com.CCT.HRMS.entities.concretes.Resume;
 
 import org.springframework.beans.factory.annotation.Autowired;

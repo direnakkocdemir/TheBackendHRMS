@@ -6,7 +6,6 @@ import com.CCT.HRMS.business.abstracts.Users.JobseekerService;
 import com.CCT.HRMS.business.abstracts.Users.UserService;
 import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.core.Utilities.Token.JWTIssuer;
-import com.CCT.HRMS.entities.DTOs.JobseekerInfoDto;
 import com.CCT.HRMS.entities.concretes.Users.Jobseeker;
 
 import org.springframework.beans.factory.annotation.Autowired;

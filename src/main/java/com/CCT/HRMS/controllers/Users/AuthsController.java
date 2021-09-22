@@ -5,10 +5,8 @@ import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.entities.DTOs.EmployerRegisterDto;
 import com.CCT.HRMS.entities.DTOs.JobseekerRegisterDto;
 import com.CCT.HRMS.entities.DTOs.LoginDto;
-import com.CCT.HRMS.entities.DTOs.UserLoginReturnDto;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;

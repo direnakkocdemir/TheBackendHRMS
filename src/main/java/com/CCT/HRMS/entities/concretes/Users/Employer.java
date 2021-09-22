@@ -10,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity // The javax.persistence annotation represents a table stored in a database
@@ -19,6 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor // Lombok annottaion to generate constructors that take no arguments
 @AllArgsConstructor  // Lombok annottaion to generate constructors that take all arguments
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","advertisements"}) //annotation to ignore fields specified by name at the class level
+@EqualsAndHashCode(callSuper = true)
 public class Employer extends User{
     //proporties
 

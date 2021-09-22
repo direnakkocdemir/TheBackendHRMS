@@ -1,7 +1,7 @@
 package com.CCT.HRMS.business.concretes;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.List;
 
 import com.CCT.HRMS.business.abstracts.AdvertisementService;
 import com.CCT.HRMS.business.constants.Messages;
@@ -12,16 +12,15 @@ import com.CCT.HRMS.core.Results.Result;
 import com.CCT.HRMS.core.Results.SuccessDataResult;
 import com.CCT.HRMS.core.Results.SuccessResult;
 import com.CCT.HRMS.core.Utilities.BusinessRules;
+import com.CCT.HRMS.dataAccess.abstracts.AdvertisementDao;
 import com.CCT.HRMS.dataAccess.abstracts.ApplicationDao;
 import com.CCT.HRMS.dataAccess.abstracts.LocationDao;
 import com.CCT.HRMS.dataAccess.abstracts.WorkTimeDao;
 import com.CCT.HRMS.dataAccess.abstracts.Users.EmployerDao;
 import com.CCT.HRMS.dataAccess.abstracts.Users.JobseekerDao;
-import com.CCT.HRMS.dataAccess.abstracts.AdvertisementDao;
-import com.CCT.HRMS.entities.concretes.Application;
 import com.CCT.HRMS.entities.DTOs.AdvertisementDto;
-import com.CCT.HRMS.entities.DTOs.AdvertisementResultDto;
 import com.CCT.HRMS.entities.concretes.Advertisement;
+import com.CCT.HRMS.entities.concretes.Application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;

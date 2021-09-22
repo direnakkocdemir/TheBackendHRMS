@@ -9,6 +9,7 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity // The javax.persistence annotation represents a table stored in a database
@@ -18,6 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor // Lombok annottaion to generate constructors that take no arguments
 @AllArgsConstructor  // Lombok annottaion to generate constructors that take all arguments
 // @JsonIgnoreProperties({"hibernateLazyInitializer", "handler","applications"})
+@EqualsAndHashCode(callSuper = true)
 public class Jobseeker extends User {
     //propertiess
 

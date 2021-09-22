@@ -1,7 +1,5 @@
 package com.CCT.HRMS.controllers.ResumeInfos;
 
-import java.util.List;
-
 import com.CCT.HRMS.business.abstracts.ResumeInfos.AboutService;
 import com.CCT.HRMS.business.abstracts.Users.UserService;
 import com.CCT.HRMS.core.Results.Result;

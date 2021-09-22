@@ -1,7 +1,5 @@
 package com.CCT.HRMS.controllers;
 
-import java.util.List;
-
 import com.CCT.HRMS.business.abstracts.AdvertisementService;
 import com.CCT.HRMS.business.abstracts.Users.UserService;
 import com.CCT.HRMS.core.Results.Result;
@@ -9,7 +7,6 @@ import com.CCT.HRMS.core.Utilities.Token.JWTIssuer;
 import com.CCT.HRMS.entities.DTOs.AdvertisementDto;
 import com.CCT.HRMS.entities.DTOs.ApplyDto;
 import com.CCT.HRMS.entities.DTOs.IdDto;
-import com.CCT.HRMS.entities.concretes.Advertisement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
